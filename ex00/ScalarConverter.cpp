@@ -1,5 +1,14 @@
 #include "ScalarConverter.hpp"
 
+// Orthodox canonical form 
+ScalarConverter::ScalarConverter() {}
+ScalarConverter::ScalarConverter(const ScalarConverter& src) { *this = src; }
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src) {
+	(void)src;
+	return *this;
+}
+ScalarConverter::~ScalarConverter() {}
+
 void	ScalarConverter::convert(const std::string& literal) {
 	// this 'if' condition handles special values
 	if (literal == "nan" || literal == "nanf" ||
