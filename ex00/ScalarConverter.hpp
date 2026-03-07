@@ -3,10 +3,10 @@
 
 # include <iostream>
 # include <string>
-# include <cstdlib> // strtod
-# include <climits> // INT_MIN, INT_MAX
-# include <cmath> // isnan, isinf
-# include <iomanip> // setprecision
+# include <limits>
+# include <iomanip>
+# include <cmath>
+# include <cstdlib>
 
 class ScalarConverter {
 	private:
