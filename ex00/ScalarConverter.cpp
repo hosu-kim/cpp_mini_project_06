@@ -25,16 +25,17 @@ void	ScalarConverter::convert(const std::string& literal) {
 				std::cout << "double: " << literal.substr(0, literal.length() -1) << std::endl;
 			} else {
 				// +inf를 입력했을 때 float에서는 f가 추가된다.
-				std::cout << "float: " << literal << "f" << std::endl;
-				std::cout << "double: " << literal << std::endl;
+				std::cout << "float: " << literal << "f" << std::endl; // float e.g., +inf => + inff
+				std::cout << "double: " << literal << std::endl; // double e.g., +inf => +inf
 			}
 			return ;
 		}
 
 	// conversion (literal -> double)
 	char* endptr = NULL;
-	// strtod(): 문자열을 double 타입의 실수로 바꿔줌.
+	// strtod(): str to double; 문자열을 double 타입의 실수로 바꿔줌.
 	// strtod(문자열, 변환이 멈춘 지점의 주소)
+	// vv: finds the last char of literal
 	double value = std::strtod(literal.c_str(), &endptr);
 
 	// Single character exception handling (e.g., 'a')
@@ -46,7 +47,7 @@ void	ScalarConverter::convert(const std::string& literal) {
 	}
 
 	// printing each types on the console
-	// 1. char conversion
+	// 1. CHAR CONVERSION
 	std::cout << "char: ";
 	// isnan(): is not a number? returns true or false
 	// isinf(): is infinite (overflow)? returns true or false
@@ -58,7 +59,7 @@ void	ScalarConverter::convert(const std::string& literal) {
 	else
 		std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
 // -----------------------------------------------------------------------------
-	// 2. int conversion
+	// 2. INT CONVERSION
 	std::cout << "int: ";
 	// numeric_limits<type>::min()/max): returns the min/max value which the type can have
 	if (value < std::numeric_limits<int>::min() ||
@@ -69,7 +70,7 @@ void	ScalarConverter::convert(const std::string& literal) {
 	else // success
 		std::cout << static_cast<int>(value) << std::endl;
 // -----------------------------------------------------------------------------
-	// 3. float & double conversion
+	// 3. FLOAT & DOUBLE CONVERSION
 	// std::fixed + std::setpresicion:
 	//   e.g., if value is 42 -> after: 42.0
 	//         if value is 42.42 -> after: 42.4
