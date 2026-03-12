@@ -60,7 +60,7 @@ void	ScalarConverter::convert(const std::string& literal) {
 // -----------------------------------------------------------------------------
 	// 2. int conversion
 	std::cout << "int: ";
-	// numeric_limits<type>::min()/max): returns the min/max value which the type can have
+	// numeric_limits<type>::min/max): returns the min/max value which the type can have
 	if (value < std::numeric_limits<int>::min() ||
 		value > std::numeric_limits<int>:: max() ||
 		// int can't have NaN
