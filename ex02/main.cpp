@@ -24,7 +24,7 @@ void	identify(Base *p) {
 	//               if the type doesn't match, rejects the conversion.
 	//               ; mainly used when converting types between classes
 	//               in an inheritance relationship
-	                 // if fails => NULL
+	//               if fails => NULL
 	if (dynamic_cast<A*>(p))
 		std::cout << "A" << std::endl;
 	else if (dynamic_cast<B*>(p))
